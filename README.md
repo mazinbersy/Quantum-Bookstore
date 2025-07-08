@@ -1,4 +1,4 @@
-# 📘 Quantum Bookstore
+![Sample Run](https://github.com/user-attachments/assets/7e461de3-074a-48c8-9439-158e65c77146)# 📘 Quantum Bookstore
 
 A simple object-oriented C++ console application simulating a digital bookstore.  
 The system supports multiple book types, purchasing logic, inventory management, and interaction with mock services.
@@ -76,5 +76,5 @@ int main() {
 
 ```
 ---
-## Output of Sample Program
+## ✅Output of Sample Program
 ![image](https://github.com/user-attachments/assets/263552dd-d47a-4a49-a89c-fe58e1d31172)
