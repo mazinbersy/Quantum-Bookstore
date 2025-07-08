@@ -38,44 +38,43 @@ The system supports multiple book types, purchasing logic, inventory management,
 
 ---
 
-## 🧪 Example Usage (`main.cpp`)
+## 🧪 Sample Program Used (`main.cpp`)
 
 ```cpp
-Inventory store;
+int main() {
+    Inventory store;
 
-store.addBook("B1", make_shared<PaperBook>("B1", "Paper Book", 2014, 2014, 120.0, 10));
-store.addBook("B2", make_shared<EBook>("B2", "E-Book", 2021, 2021, 80.0, true, "pdf"));
-store.addBook("B3", make_shared<DemoBook>("B3", "Demo Book", 2000, 2000, 0.0, false));
+    // Add books
+    store.addBook("B1", make_shared<PaperBook>("B1", "Paper Book", 2014, 2014, 120.0, 10));
+    store.addBook("B2", make_shared<EBook>("B2", "E-Book", 2021, 2021, 80.0, true, "pdf"));
+    store.addBook("B3", make_shared<DemoBook>("B3", "Demo Book", 2000, 2000, 0.0, false));
 
-store.purchaseBook("B1", 2, "123 Street", "buyer@mail.com");
-store.purchaseBook("B2", 1, "", "reader@mail.com");
-store.purchaseBook("B3", 1, "456 Road", "demo@mail.com");
+    cout << endl << "Showing all books..." << endl;
+    store.display();
 
-store.removeOutdatedBooks(10);
-store.display();
+    cout << endl << "Buying Paper Book (2 copies)..." << endl;
+    float paid = store.purchaseBook("B1", 2, "123 Street", "buyer@gmail.com");
+    if (paid >= 0)
+        cout << "Paid: " << paid << " EGP" << endl;
+
+    cout << endl << "Buying E-Book..." << endl;
+    paid = store.purchaseBook("B2", 1, "", "reader@gmail.com");
+    if (paid >= 0)
+        cout << "Paid: " << paid << " EGP" << endl;
+
+    cout << endl << "Trying to buy Demo Book..." << endl;
+    store.purchaseBook("B3", 1, "456 Road", "demo@gmail.com");
+
+    cout << endl << "Removing books older than 10 years..." << endl;
+    store.removeOutdatedBooks(10);
+
+    cout << endl << "Remaining books..." << endl;
+    store.display();
+
+    return 0;
+}
+
 ```
-
-## ✅ Sample Output
-```
-Showing all books...
-Paper Book - B1 - 2014
-E-Book - B2 - 2021
-Demo Book - B3 - 2000
-
-Buying Paper Book (2 copies)...
-Shipping to: 123 Street
-Paid: 240 EGP
-
-Buying E-Book...
-Email sent to: reader@mail.com
-Paid: 80 EGP
-
-Trying to buy Demo Book...
-This book is not for sale.
-
-Removing books older than 10 years...
-Removing: B3
-
-Remaining books...
-Paper Book - B1 - 2014
-E-Book - B2 - 2021
+---
+## Output of Sample Program
+![image](https://github.com/user-attachments/assets/263552dd-d47a-4a49-a89c-fe58e1d31172)
